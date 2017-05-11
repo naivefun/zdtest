@@ -15,7 +15,8 @@ module.exports.run = function compareUris(uri1, uri2) {
 
         for (let key of ['scheme', 'domain']) {
             if (u1[key] && u2[key]) {
-                return u1[key].toLowerCase() === u2[key].toLowerCase();
+                if (u1[key].toLowerCase() !== u2[key].toLowerCase())
+                    return false;
             } else return false;
         }
 
