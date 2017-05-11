@@ -105,6 +105,7 @@ function compareQuery(query1, query2) {
         let r1 = collect(query1), r2 = collect(query2), keys = Object.keys(r1);
         if (keys.length === Object.keys(r2).length) {
             for (let key of keys) {
+                if (!r2[key]) return false;
                 if (r1[key].length !== r2[key].length) return false;
                 for (let i = 0; i < r1[key].length; i++) {
                     if (r1[key][i] !== r2[key][i]) return false;
