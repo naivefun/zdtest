@@ -1,6 +1,9 @@
 'use strict';
 
 module.exports.run = function compareUris(uri1, uri2) {
+    if (!isString(uri1) || !isString(uri2)) return false;
+    if (uri1 === uri2) return true;
+    
     let u1 = parseUri(uri1);
     let u2 = parseUri(uri2);
 
